@@ -43,42 +43,30 @@ var gamepadInput = (function () {
             //Axes 0
             if (axesIndex == 0) {
                 if (axesValue >= 0) {
-                    directionOfMovement = 'top';
+                    directionOfMovement = 'right';
                 }
                 if (axesValue == 0) {
                     directionOfMovement = 'center';
                 }
                 if (axesValue <= 0) {
-                    directionOfMovement = 'bottom';
+                    directionOfMovement = 'left';
                 }
             }
             //Axes 1
             if (axesIndex == 1) {
                 if (axesValue >= 0) {
-                    directionOfMovement = 'right';
+                    directionOfMovement = 'bottom';
                 }
                 if (axesValue == 0) {
                     directionOfMovement = 'center';
                 }
                 if (axesValue <= 0) {
-                    directionOfMovement = 'left';
+                    directionOfMovement = 'top';
                 }
             }
             //Axes 2
             if (axesIndex == 2) {
                 if (axesValue >= 0) {
-                    directionOfMovement = 'top';
-                }
-                if (axesValue == 0) {
-                    directionOfMovement = 'center';
-                }
-                if (axesValue <= 0) {
-                    directionOfMovement = 'bottom';
-                }
-            }
-            //Axes 3
-            if (axesIndex == 3) {
-                if (axesValue >= 0) {
                     directionOfMovement = 'right';
                 }
                 if (axesValue == 0) {
@@ -88,6 +76,19 @@ var gamepadInput = (function () {
                     directionOfMovement = 'left';
                 }
             }
+            //Axes 3
+            if (axesIndex == 3) {
+                if (axesValue >= 0) {
+                    directionOfMovement = 'bottom';
+                }
+                if (axesValue == 0) {
+                    directionOfMovement = 'center';
+                }
+                if (axesValue <= 0) {
+                    directionOfMovement = 'top';
+                }
+            }
+            
             var axesEvent = new CustomEvent(axesName, {
                 detail: {
                     name: axesName,
