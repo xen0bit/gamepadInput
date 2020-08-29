@@ -6,7 +6,7 @@ var gamepadInput = (function () {
         gamepadInitialized: false,
         gamepadButtonState: [],
         gamepadAxesState: [],
-        buttonEventListener: function(buttonIndex) {
+        buttonEventListener: function (buttonIndex) {
             var buttonName = 'button_' + buttonIndex;
             window.addEventListener(buttonName, function (e) {
                 gamepadInput.buttonCallbackFunction(e);
@@ -30,9 +30,69 @@ var gamepadInput = (function () {
         },
         axesEventDisaptcher: function (axesIndex, axesValue) {
             var axesName = 'axes_' + axesIndex;
+            //labels axes
+            var axesStickMoved = Math.floor(axesIndex / 2);
+            if (axesStickMoved == 0) {
+                axesStickMoved = 'left_stick';
+            }
+            if (axesStickMoved == 1) {
+                axesStickMoved = 'right_stick';
+            }
+            //label direction of movement
+            var directionOfMovement = '';
+            //Axes 0
+            if (axesIndex == 0) {
+                if (axesValue >= 0) {
+                    directionOfMovement = 'top';
+                }
+                if (axesValue == 0) {
+                    directionOfMovement = 'center';
+                }
+                if (axesValue <= 0) {
+                    directionOfMovement = 'bottom';
+                }
+            }
+            //Axes 1
+            if (axesIndex == 1) {
+                if (axesValue >= 0) {
+                    directionOfMovement = 'right';
+                }
+                if (axesValue == 0) {
+                    directionOfMovement = 'center';
+                }
+                if (axesValue <= 0) {
+                    directionOfMovement = 'left';
+                }
+            }
+            //Axes 2
+            if (axesIndex == 2) {
+                if (axesValue >= 0) {
+                    directionOfMovement = 'top';
+                }
+                if (axesValue == 0) {
+                    directionOfMovement = 'center';
+                }
+                if (axesValue <= 0) {
+                    directionOfMovement = 'bottom';
+                }
+            }
+            //Axes 3
+            if (axesIndex == 3) {
+                if (axesValue >= 0) {
+                    directionOfMovement = 'right';
+                }
+                if (axesValue == 0) {
+                    directionOfMovement = 'center';
+                }
+                if (axesValue <= 0) {
+                    directionOfMovement = 'left';
+                }
+            }
             var axesEvent = new CustomEvent(axesName, {
                 detail: {
                     name: axesName,
+                    stickMoved: axesStickMoved,
+                    axesDirectionsOfMovement : directionOfMovement,
                     value: axesValue
                 }
             });
