@@ -1,0 +1,22 @@
+{
+  "name": "gamepadinput",
+  "version": "1.0.0",
+  "description": "HTML5 Gamepad API Event Driven Wrapper",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xen0bit/gamepadInput.git"
+  },
+  "author": "Matthew Remacle 2020",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xen0bit/gamepadInput/issues"
+  },
+  "homepage": "https://github.com/xen0bit/gamepadInput#readme",
+  "devDependencies": {
+    "uglify-es": "^3.3.9"
+  }
+}
